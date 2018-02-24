@@ -11,17 +11,32 @@ class HourObject extends Component {
   };
 
   render = () => {
-    const { name, location, startHour, endHour } = this.props;
+    const { name, location, startHour, endHour, total } = this.props;
     const { clicked } = this.state;
     return (
-      <ul className="hourItems">
-        <li onClick={this.handleClickItem} className={`hourItem ${clicked ? `clicked` : ``}`}>
-          <p>{name}</p>
-          <p>{location}</p>
-          <p>{startHour}</p>
-          <p>{endHour}</p>
-        </li>
-      </ul>
+      <table className="hourItems">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr
+          onClick={this.handleClickItem}
+          className={`hourItem ${clicked ? `clicked` : ``}`}
+        >
+          <td>{name}</td>
+          <td>{location}</td>
+          <td>{startHour}</td>
+          <td>{endHour}</td>
+          <td>{total}</td>
+        </tr>
+        </tbody>
+      </table>
     );
   };
 }
