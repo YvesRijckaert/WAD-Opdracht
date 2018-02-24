@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import HourObject from "./HourObject";
+import TotalHours from "./TotalHours";
 
 class App extends Component {
   render() {
@@ -14,6 +15,10 @@ class App extends Component {
           endHour="19:00"
           total="€ 96"
         />
+        <TotalHours
+          totalHours="11 hours"
+          totalAmount ="€ 96"
+         />
       </div>
     );
   }
