@@ -9,6 +9,7 @@ class App extends Component {
         <HourObject
           name="Café Devine"
           location="Budafabriek"
+          date="13/01/2018"
           startHour="8:00"
           endHour="19:00"
           total="€ 96"
