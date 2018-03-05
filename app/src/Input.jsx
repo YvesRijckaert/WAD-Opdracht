@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Input = ({ value, name, type, onChange }) => {
+const Input = ({ value, name, type, min, max, onChange }) => {
 
   const changeInput = e => {
     const { value } = e.currentTarget;
@@ -10,7 +10,7 @@ const Input = ({ value, name, type, onChange }) => {
 
   return (
      <label>{name}
-     <input type={type} onChange={changeInput} />
+     <input type={type} onChange={changeInput} min={min} max={max}  />
      </label>
   )
 

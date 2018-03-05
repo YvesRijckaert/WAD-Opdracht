@@ -4,3 +4,9 @@
   grid-template-rows: 2fr max-content min-content min-content 1fr;
   height: 100vh;
   }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }

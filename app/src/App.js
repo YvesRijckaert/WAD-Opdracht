@@ -53,12 +53,16 @@ class App extends Component {
             value={start}
             type="number"
             name="Start hour:"
+            min="1"
+            max="24"
             onChange={e => this.handleInputChange("start", e)}
           />
           <Input
             value={end}
             type="number"
             name="End hour:"
+            min="1"
+            max="24"
             onChange={e => this.handleInputChange("end", e)}
           />
         </form>
