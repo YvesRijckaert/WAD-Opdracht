@@ -1,8 +1,18 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "./App.css";
 import HourObject from "./HourObject";
 import TotalHours from "./TotalHours";
 import Input from "./Input";
+
+const calculateTotal = (start, end) => {
+  return end - start;
+};
+
+calculateTotal.propTypes = {
+  start: PropTypes.number.isRequired,
+  end: PropTypes.number.isRequired
+};
 
 class App extends Component {
   constructor(props) {
@@ -12,7 +22,7 @@ class App extends Component {
     this.state = {
       name: "Café Devine",
       location: "Budafabriek",
-      start: "7",
+      start: "9",
       end: "19"
     };
   }
@@ -21,29 +31,39 @@ class App extends Component {
     this.setState({ [name]: value });
   };
 
-  calculateTotal = (start, end) => {
-    return start + end;
-  }
-
   render() {
     const { name, location, start, end } = this.state;
-    const total = this.calculateTotal(start, end);
+    const total = calculateTotal(parseFloat(start), parseFloat(end));
     return (
       <div className="App">
         <form>
           <Input
             value={name}
+            type="text"
             name="Name:"
             onChange={e => this.handleInputChange("name", e)}
           />
           <Input
             value={location}
+            type="text"
             name="Location:"
             onChange={e => this.handleInputChange("location", e)}
           />
+          <Input
+            value={start}
+            type="number"
+            name="Start hour:"
+            onChange={e => this.handleInputChange("start", e)}
+          />
+          <Input
+            value={end}
+            type="number"
+            name="End hour:"
+            onChange={e => this.handleInputChange("end", e)}
+          />
         </form>
 
-        <HourObject name={name} location={location} />
+        <HourObject name={name} location={location} startHour={start} endHour={end} />
 
         <TotalHours totalHours={total} totalAmount="€ 96" />
       </div>

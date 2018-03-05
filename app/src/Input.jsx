@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Input = ({ value, name, onChange }) => {
+const Input = ({ value, name, type, onChange }) => {
 
   const changeInput = e => {
     const { value } = e.currentTarget;
@@ -10,14 +10,14 @@ const Input = ({ value, name, onChange }) => {
 
   return (
      <label>{name}
-     <input type="text" onChange={changeInput} />
+     <input type={type} onChange={changeInput} />
      </label>
   )
 
 }
 
 Input.propTypes = {
-  value: PropTypes.number.isRequired,
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired
 }
 

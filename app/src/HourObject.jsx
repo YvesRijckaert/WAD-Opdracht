@@ -9,8 +9,8 @@ const HourObject = ({ name, location, date, startHour, endHour, total }) => {
             <th>Name</th>
             <th>Location</th>
             <th>Date</th>
-            <th>Start</th>
-            <th>End</th>
+            <th>Start hour</th>
+            <th>End hour</th>
             <th>Total</th>
           </tr>
         </thead>
