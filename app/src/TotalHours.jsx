@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import "./Table.css";
 
 class TotalHours extends Component {
-  constructor(props) {
-    super(props);
-  }
   render = () => {
     const { totalHours, totalAmount } = this.props;
     return (
