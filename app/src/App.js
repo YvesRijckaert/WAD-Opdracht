@@ -4,21 +4,33 @@ import HourObject from "./HourObject";
 import TotalHours from "./TotalHours";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.handleChangeName = this.handleChangeName.bind(this);
+    this.state = { name: "" };
+  }
+
+  handleChangeName = e => {
+    this.setState({ name: e.target.value });
+  };
+
   render() {
+    const name = this.state.name;
     return (
       <div className="App">
+        <label>
+          Name
+          <input
+            value={name}
+            onChange={this.handleChangeName}
+          />
+        </label>
+
         <HourObject
-          name="Café Devine"
-          location="Budafabriek"
-          date="13/01/2018"
-          startHour="8:00"
-          endHour="19:00"
-          total="€ 96"
+          name={(name)}
         />
-        <TotalHours
-          totalHours="11 hours"
-          totalAmount ="€ 96"
-         />
+        
+        <TotalHours totalHours="11 hours" totalAmount="€ 96" />
       </div>
     );
   }

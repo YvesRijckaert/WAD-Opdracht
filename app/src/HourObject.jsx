@@ -1,21 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Table.css";
 
-class HourObject extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { clicked: false };
-  }
-
-  handleClickItem = e => {
-    this.setState((prevState, props) => ({ clicked: !prevState.clicked }));
-  };
-
-  render = () => {
-    const { name, location, date, startHour, endHour, total } = this.props;
-    const { clicked } = this.state;
-    return (
-      <table className="hourItems">
+const HourObject = ({ name, location, date, startHour, endHour, total }) => {
+  return(
+    <table className="hourItems">
         <thead>
           <tr>
             <th>Name</th>
@@ -27,10 +15,7 @@ class HourObject extends Component {
           </tr>
         </thead>
         <tbody>
-          <tr
-            onClick={this.handleClickItem}
-            className={`hourItem ${clicked ? `clicked` : ``}`}
-          >
+          <tr>
             <td>{name}</td>
             <td>{location}</td>
             <td>{date}</td>
@@ -40,8 +25,7 @@ class HourObject extends Component {
           </tr>
         </tbody>
       </table>
-    );
-  };
-}
+  );
+};
 
 export default HourObject;
