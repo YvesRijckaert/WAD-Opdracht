@@ -34,7 +34,7 @@ class App extends Component {
     this.setState({ table: updatedTable })
   }
 
-  handleChangeAnimal = (id, workPlace) => {
+  handleChangeWorkPlace = (id, workPlace) => {
     const workPlaces = { ...this.state.workPlaces };
     workPlaces[id] = workPlace;
     this.setState({ workPlaces });
