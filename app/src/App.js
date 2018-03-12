@@ -23,16 +23,26 @@ class App extends Component {
       name: "Café Devine",
       location: "Budafabriek",
       start: "9",
-      end: "19"
+      end: "19",
+      workDay: {}
     };
   }
+
+  handleAddToCart = id => {
+    const { workDay } = this.state;
+
+    const updatedWorkDay = { ...workDay };
+    updatedWorkDay[id] = updatedWorkDay[id] + 1 || 1;
+
+    this.setState({ workDay: updatedWorkDay });
+  };
 
   handleInputChange = (name, value) => {
     this.setState({ [name]: value });
   };
 
   render() {
-    const { name, location, start, end } = this.state;
+    const { name, location, start, end, workDay } = this.state;
     const total = calculateTotal(parseFloat(start), parseFloat(end));
     return (
       <div className="App">
@@ -66,9 +76,17 @@ class App extends Component {
             onChange={e => this.handleInputChange("end", e)}
           />
         </form>
-
-        <HourObject name={name} location={location} startHour={start} endHour={end} />
-
+        <HourObject
+          name={name}
+          location={location}
+          startHour={start}
+          endHour={end}
+        />
+        {
+        Object.keys(workDay).map(id => (
+        <li key={id}>{workDay[id].value}</li>
+        ))
+        }
         <TotalHours totalHours={total} totalAmount="€ 96" />
       </div>
     );
