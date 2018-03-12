@@ -1,7 +1,8 @@
 /* CSS voor de web app */
 .App {
   display: grid;
-  grid-template-rows: 2fr max-content min-content min-content 1fr;
+  grid-template-rows: repeat(3, min-content);
+  grid-row-gap: 2rem;
   height: 100vh;
   }
 

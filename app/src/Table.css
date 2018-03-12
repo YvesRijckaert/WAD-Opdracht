@@ -1,7 +1,5 @@
 table {
   width: 100%;
-  table-layout: fixed;
-  border-collapse: collapse;
 }
 
 thead {
@@ -13,12 +11,6 @@ th {
   font-weight: 500;
   color: #fff;
   text-transform: uppercase;
-}
-
-tbody {
-  height: 300px;
-  overflow-x: auto;
-  margin-top: 0px;
 }
 
 td {

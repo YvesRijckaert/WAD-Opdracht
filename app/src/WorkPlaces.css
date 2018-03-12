@@ -1,0 +1,22 @@
+.workPlaces {
+    display: grid;
+    grid-template: 1fr / 1fr 1fr 1fr;
+  }
+
+  .workPlaces h2 {
+      grid-column: span 3;
+      text-align: center;
+  }
+
+  .work-item{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 25rem;
+  }
+
+  .work-item-image {
+    object-fit: cover;
+  }

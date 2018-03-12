@@ -1,53 +1,59 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import "./App.css";
-import HourObject from "./HourObject";
+import PropTypes from "prop-types";
+
+import WorkPlaces from "./WorkPlaces";
+import WorkTable from "./WorkTable";
 import TotalHours from "./TotalHours";
-import Input from "./Input";
 
-const calculateTotal = (start, end) => {
-  return end - start;
-};
-
-calculateTotal.propTypes = {
-  start: PropTypes.number.isRequired,
-  end: PropTypes.number.isRequired
-};
+import { calculateTotalHours } from "./utils";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.handleInputChange = this.handleInputChange.bind(this);
 
-    this.state = {
-      name: "Café Devine",
-      location: "Budafabriek",
-      start: "9",
-      end: "19",
-      workDay: {}
-    };
+  constructor() {
+    super();
+    this.state = {workPlaces: {}, table: {}, total: 0};
   }
 
-  handleAddToCart = id => {
-    const { workDay } = this.state;
+  componentDidMount = () => {
+    fetch('./data/workOptions.json')
+      .then(responseObject => responseObject.json())
+      .then(this.parseJSON);
+  }
 
-    const updatedWorkDay = { ...workDay };
-    updatedWorkDay[id] = updatedWorkDay[id] + 1 || 1;
+  parseJSON = data => {
+    this.setState({ workPlaces: data });
+  }
 
-    this.setState({ workDay: updatedWorkDay });
-  };
+  handleAddItem = id => {
+    const { table } = this.state;
 
-  handleInputChange = (name, value) => {
-    this.setState({ [name]: value });
-  };
+    const updatedTable = { ...table };
+    updatedTable[id] = updatedTable[id] + 1 || 1;
+
+    this.setState({ table: updatedTable })
+  }
+
+  handleChangeAnimal = (id, workPlace) => {
+    const workPlaces = { ...this.state.workPlaces };
+    workPlaces[id] = workPlace;
+    this.setState({ workPlaces });
+  }
+
+  handleClickToTotal = () => {
+    this.setState(({ table, workPlaces, total }) => {
+      const newTotal = calculateTotalHours();
+      return { total: newTotal }
+    });
+  }
 
   render() {
-    const { workDay } = this.state;
+    const { workPlaces, table, total } = this.state;
     return (
       <div className="App">
-      <AddHoursForm workDay={workDay} />
-        <HourObject workDay={workDay} />
-        <TotalHours totalHours="test" totalAmount="€ 96" />
+        <WorkPlaces workPlaces={workPlaces} onAddToTable={this.handleAddItem} onChangeWorkPlace={this.handleChangeWorkPlace}  />
+        <WorkTable workPlaces={workPlaces} table={table} onClickAddToTotal={this.handleClickToTotal} />
+        <TotalHours totalHours={total} totalAmount="currency calculator from total here" />
       </div>
     );
   }
