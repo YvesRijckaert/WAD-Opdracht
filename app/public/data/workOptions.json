@@ -10,7 +10,7 @@
   "workOption2": {
     "name": "Howestcafé",
     "location": "Kortrijk",
-    "src": "assets/img/buda.jpg",
+    "src": "assets/img/howest.jpg",
     "startHour": 10,
     "endHour": 18,
     "salaryPerHour": 12
@@ -18,7 +18,7 @@
   "workOption3": {
     "name": "Bal infernal",
     "location": "Gent",
-    "src": "assets/img/buda.jpg",
+    "src": "assets/img/infernal.jpg",
     "startHour": 11,
     "endHour": 20,
     "salaryPerHour": 9
