@@ -19,7 +19,6 @@ const WorkPlaces = ({ workPlaces, onAddToTable, onChangeWorkPlace }) => {
   const renderWorkPlace = (workPlace, id) => {
     return (
       <article className="work-item" key={id}>
-      <Link to="/">Bring me home!</Link>
         <img
           src={workPlace.src}
           alt={workPlace.name}
@@ -57,6 +56,7 @@ const WorkPlaces = ({ workPlaces, onAddToTable, onChangeWorkPlace }) => {
 
   return (
     <section className="workPlaces">
+      <Link to="/">Go home!</Link>
       <h2>Your work places:</h2>
       {Object.keys(workPlaces).map(id => renderWorkPlace(workPlaces[id], id))}
     </section>
