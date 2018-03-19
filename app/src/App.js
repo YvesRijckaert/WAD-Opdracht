@@ -40,6 +40,12 @@ class App extends Component {
     this.setState({ workPlaces });
   }
 
+  handleDeleteWorkPlace = id => {
+    const workPlaces = { ...this.state.workPlaces };
+    delete workPlaces[id];
+    this.setState({ workPlaces });
+  }
+
   handleClickToTotal = () => {
     this.setState(({ table, workPlaces, total }) => {
       const newTotal = calculateTotalHours();
@@ -51,7 +57,7 @@ class App extends Component {
     const { workPlaces, table, total } = this.state;
     return (
       <div className="App">
-        <WorkPlaces workPlaces={workPlaces} onAddToTable={this.handleAddItem} onChangeWorkPlace={this.handleChangeWorkPlace}  />
+        <WorkPlaces workPlaces={workPlaces} onAddToTable={this.handleAddItem} onChangeWorkPlace={this.handleChangeWorkPlace} onDeleteWorkPlace={this.handleDeleteWorkPlace}  />
         <WorkTable workPlaces={workPlaces} table={table} onClickAddToTotal={this.handleClickToTotal} />
         <TotalHours totalHours={total} totalAmount="currency calculator from total here" />
       </div>
