@@ -1,12 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import WorkTableLine from "./WorkTableLine";
+import { Link } from "react-router-dom";
 
 import "./Table.css";
 
 const WorkTable = ({ workPlaces, table, onClickAddToTotal }) => {
   return (
     <table className="hourItems">
+      <nav>
+        <Link to="/workPlace/add">
+          Add work to table
+        </Link>
+      </nav>
       <thead>
         <tr>
           <th>Name</th>
@@ -19,11 +25,15 @@ const WorkTable = ({ workPlaces, table, onClickAddToTotal }) => {
       </thead>
       <tbody>
         {Object.keys(table).map(id => (
-          <WorkTableLine key={id} id={id} aantal={table[id]} workPlace={workPlaces[id]} />
+          <WorkTableLine
+            key={id}
+            id={id}
+            aantal={table[id]}
+            workPlace={workPlaces[id]}
+          />
         ))}
       </tbody>
       <button onClick={onClickAddToTotal}>Bereken</button>
-
     </table>
   );
 };
@@ -31,7 +41,7 @@ const WorkTable = ({ workPlaces, table, onClickAddToTotal }) => {
 WorkTable.propTypes = {
   workPlaces: PropTypes.object.isRequired,
   table: PropTypes.object.isRequired,
-  onClickAddToTotal: PropTypes.func.isRequired,
-}
+  onClickAddToTotal: PropTypes.func.isRequired
+};
 
 export default WorkTable;

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./WorkPlaces.css";
+import { Link } from "react-router-dom";
 
 const WorkPlaces = ({ workPlaces, onAddToTable, onChangeWorkPlace }) => {
   const handleClickButton = id => {
@@ -18,6 +19,7 @@ const WorkPlaces = ({ workPlaces, onAddToTable, onChangeWorkPlace }) => {
   const renderWorkPlace = (workPlace, id) => {
     return (
       <article className="work-item" key={id}>
+      <Link to="/">Bring me home!</Link>
         <img
           src={workPlace.src}
           alt={workPlace.name}
