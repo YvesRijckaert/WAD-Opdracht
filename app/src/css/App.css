@@ -4,10 +4,10 @@
   grid-template-rows: repeat(3, min-content);
   grid-row-gap: 2rem;
   height: 100vh;
-  }
+}
 
-  form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-  }
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
