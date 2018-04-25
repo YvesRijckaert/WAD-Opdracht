@@ -6,17 +6,17 @@ const OverView = ({ workTotals }) => {
     <table className="hourItems">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Location</th>
-          <th>Start</th>
-          <th>End</th>
-          <th>Days</th>
-          <th>Money earned</th>
+          <th>Naam</th>
+          <th>Locatie</th>
+          <th>Startuur</th>
+          <th>Stopuur</th>
+          <th>Aantal dagen</th>
+          <th>Totaal loon</th>
         </tr>
       </thead>
       <tbody>
         {workTotals.map(({ work, totalDays, decrement, totalSalary }) => (
-          <tr onClick={decrement}>
+          <tr key={work.id} onClick={decrement}>
             <td>{work.name}</td>
             <td>{work.location}</td>
             <td>{work.startHour}</td>
@@ -31,7 +31,7 @@ const OverView = ({ workTotals }) => {
 };
 
 OverView.propTypes = {
-  orders: PropTypes.observableArray.isRequired
+  workTotals: PropTypes.observableArray.isRequired
 };
 
 export default observer(OverView);

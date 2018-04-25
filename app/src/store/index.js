@@ -5,12 +5,25 @@ import WorkTotal from "../models/WorkTotal";
 configure({ enforceActions: true });
 
 class Store {
-  workTotals = [];
-  workOptions = [];
+  workTotals = []; //orders
+  workOptions = []; //menu
 
   constructor() {
     this.addWorkOption(
       new WorkOption(`Budacafé`, `Kortrijk`, `assets/img/buda.jpg`, 9, 17, 11)
+    );
+    this.addWorkOption(
+      new WorkOption(`Howest`, `Kortrijk`, `assets/img/howest.jpg`, 9, 17, 10)
+    );
+    this.addWorkOption(
+      new WorkOption(
+        `Bal infernal`,
+        `Gent`,
+        `assets/img/infernal.jpg`,
+        9,
+        17,
+        11
+      )
     );
   }
 
@@ -18,14 +31,12 @@ class Store {
     this.workOptions.push(workOption);
   };
 
-  addToWorkTotal = workOption => {
-    const workOptie = this.workTotals.find(
-      check => check.workOption.id === workOption.id
-    );
+  addToWorkTotal = work => {
+    const workOptie = this.workTotals.find(check => check.work.id === work.id);
     if (workOptie) {
       workOptie.increment();
     } else {
-      this.workTotals.push(new WorkTotal(workOption, this.removeOrder));
+      this.workTotals.push(new WorkTotal(work, this.removeOrder));
     }
   };
 

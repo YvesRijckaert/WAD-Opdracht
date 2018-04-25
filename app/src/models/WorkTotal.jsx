@@ -25,8 +25,8 @@ class WorkTotal {
   }
 }
 decorate(WorkTotal, {
-  drink: observable,
-  amount: observable,
+  work: observable,
+  totalDays: observable,
   increment: action, //enforceActions: true
   decrement: action, //enforceActions: true
   totalSalary: computed

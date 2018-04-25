@@ -11,15 +11,15 @@ class App extends Component {
     const { store } = this.props;
     return (
       <div className="App">
-        <article>
+        <section className="werkplaatsen">
           <h2>Voeg nieuwe werkdag toe</h2>
           <WorkPlaces store={store} />
-        </article>
-        <article>
+        </section>
+        <section>
           <h2>Totaal werkuren</h2>
           <OverView workTotals={store.workTotals} />
-          <p>Toaal loon: {store.totalSalary}</p>
-        </article>
+          <p>Totaal loon: €{store.totalSalary}</p>
+        </section>
         <section>
           <h2>Beheer jouw werk plaatsen</h2>
           <article>
