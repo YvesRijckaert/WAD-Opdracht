@@ -1,13 +1,96 @@
 body {
   margin: 5rem;
-  background-image: linear-gradient(
-    to right,
-    #f78ca0 0%,
-    #f9748f 19%,
-    #fd868c 60%,
-    #fe9a8b 100%
-  );
+  background-color: #e56b5e;
   font-family: "Roboto", sans-serif;
   font-size: 2.5vmin;
   color: white;
+}
+
+.workPlaces {
+  display: grid;
+  grid-template: 1fr / 1fr 1fr 1fr;
+}
+
+.workPlaces h2 {
+  grid-column: span 3;
+  text-align: center;
+}
+
+.work-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 25rem;
+}
+
+.work-item-image {
+  object-fit: cover;
+}
+
+/* table */
+
+section.the-css-at-table {
+  display: table;
+  border-collapse: collapse;
+}
+section.the-css-at-table header {
+  display: table-header-group;
+}
+section.the-css-at-table .tbody {
+  display: table-row-group;
+}
+section.the-css-at-table .tr {
+  display: table-row;
+}
+section.the-css-at-table .tr > span {
+  display: table-cell;
+  padding: 1rem;
+  border: 0.1rem solid #e6e7f1;
+  text-align: left;
+}
+
+section.the-css-at-table .th {
+  border-color: #021450;
+  color: white;
+  text-transform: uppercase;
+}
+section.the-css-at-table .title {
+  display: none;
+}
+section.the-css-at-table .no-style-break {
+  display: none;
+}
+section.the-css-at-table .spacer {
+  display: none;
+}
+@media (max-width: 700px) {
+  section.the-css-at-table {
+    display: block;
+  }
+  section.the-css-at-table header {
+    display: none !important;
+  }
+  section.the-css-at-table .tbody {
+    display: block;
+  }
+  section.the-css-at-table .tr {
+    display: block;
+    margin: 0 0 20px 0;
+  }
+  section.the-css-at-table .tr > span {
+    display: block;
+  }
+  section.the-css-at-table .tr > span::before {
+    display: inline-block;
+    width: 33%;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  section.the-css-at-table .title {
+    display: inline-block;
+    width: 30%;
+    font-weight: bold;
+  }
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react";
 import { PropTypes } from "prop-types";
-import "../css/WorkPlaces.css";
 
 const WorkPlaces = ({ store }) => {
   const { workOptions, addToWorkTotal } = store;
