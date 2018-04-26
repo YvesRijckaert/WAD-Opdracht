@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
-import "../css/App.css";
 import WorkPlaces from "../components/WorkPlaces";
 import OverView from "../components/OverView";
 import EditWorkOption from "../components/EditWorkOption";
@@ -13,7 +12,9 @@ class App extends Component {
       <div className="App">
         <section className="werkplaatsen">
           <h2>Voeg nieuwe werkdag toe</h2>
-          <WorkPlaces store={store} />
+          <div className="work-places">
+            <WorkPlaces store={store} />
+          </div>
         </section>
         <section>
           <h2>Totaal werkuren</h2>

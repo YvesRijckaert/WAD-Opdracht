@@ -15,14 +15,33 @@ const WorkPlaces = ({ store }) => {
       />
       <div className="work-item-info">
         <h3 className="work-item-title">{workOption.name}</h3>
-        <p>StartHour</p>
-        <input
-          type="number"
-          name="startHour"
-          defaultValue={workOption.startHour}
-        />
-        <p>EndHour</p>
-        <input type="number" name="endHour" defaultValue={workOption.endHour} />
+        <fieldset class="ui-input">
+          <input
+            type="number"
+            value={workOption.startHour}
+            step="0.5"
+            id="startuur"
+            tabindex="0"
+            name="startHour"
+            defaultValue=""
+          />
+          <label for="startuur">
+            <span>Startuur</span>
+          </label>
+        </fieldset>
+        <fieldset class="ui-input">
+          <input
+            type="number"
+            defaultValue={workOption.endHour}
+            step="0.5"
+            id="einduur"
+            tabindex="0"
+            name="endHour"
+          />
+          <label for="einduur">
+            <span>Einduur</span>
+          </label>
+        </fieldset>
       </div>
       <a className="bttn" onClick={() => addToWorkTotal(workOption)}>
         Add To Table

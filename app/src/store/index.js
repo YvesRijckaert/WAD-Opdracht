@@ -46,7 +46,7 @@ class Store {
 
   get totalSalary() {
     //hier berekening doen om de totale salary van alle werkplaatsen te hebben
-    return 1;
+    return 0;
   }
 }
 decorate(Store, {
