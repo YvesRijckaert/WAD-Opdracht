@@ -4,41 +4,83 @@ import WorkPlaces from "../components/WorkPlaces";
 import OverView from "../components/OverView";
 import EditWorkOption from "../components/EditWorkOption";
 import AddWorkOption from "../components/AddWorkOption";
+import { Switch, Route, Link, withRouter } from "react-router-dom";
+import { Observer } from "mobx-react";
 
 class App extends Component {
   render() {
     const { store } = this.props;
     return (
       <div className="App">
-        <section className="werkplaatsen">
-          <h2>Voeg nieuwe werkdag toe</h2>
-          <div className="work-places">
-            <WorkPlaces store={store} />
-          </div>
-        </section>
-        <section>
-          <h2>Totaal werkuren</h2>
-          <OverView workTotals={store.workTotals} />
-          <p>Totaal loon: €{store.totalSalary}</p>
-        </section>
-        <section>
-          <h2>Beheer jouw werk plaatsen</h2>
-          <article>
-            <h3>Verander bestaande werkplaats</h3>
-            <div className="work-option-wrap">
-              {store.workOptions.map(workOption => (
-                <EditWorkOption key={workOption.id} workOption={workOption} />
-              ))}
-            </div>
-          </article>
-          <article>
-            <h3>Voeg werkplaats toe</h3>
-            <AddWorkOption store={store} />
-          </article>
-        </section>
+        <Switch>
+          <Route
+            path="/"
+            exact
+            render={() => (
+              <Observer>
+                {() => (
+                  <div>
+                    <section className="werkplaatsen">
+                      <h2>Voeg nieuwe werkdag toe</h2>
+                      <div className="work-places">
+                        <WorkPlaces store={store} />
+                      </div>
+                    </section>
+                    <section>
+                      <h2>Totaal werkuren</h2>
+                      <OverView workTotals={store.workTotals} />
+                      <p>Totaal loon: €{store.totalSalary}</p>
+                    </section>
+                    <section>
+                      <h2>Beheer jouw werk plaatsen</h2>
+                      <Link to="/edit">Verander bestaande werkplaats</Link>
+                      <br />
+                      <Link to="/add">Voeg werkplaats toe</Link>
+                    </section>
+                  </div>
+                )}
+              </Observer>
+            )}
+          />
+          <Route
+            path="/edit"
+            render={() => (
+              <Observer>
+                {() => (
+                  <article>
+                    <Link to="/">← terug</Link>
+                    <h3>Verander bestaande werkplaats</h3>
+                    <div className="work-option-wrap">
+                      {store.workOptions.map(workOption => (
+                        <EditWorkOption
+                          key={workOption.id}
+                          workOption={workOption}
+                        />
+                      ))}
+                    </div>
+                  </article>
+                )}
+              </Observer>
+            )}
+          />
+          <Route
+            path="/add"
+            render={() => (
+              <Observer>
+                {() => (
+                  <article>
+                    <Link to="/">← terug</Link>
+                    <h3>Voeg werkplaats toe</h3>
+                    <AddWorkOption store={store} />
+                  </article>
+                )}
+              </Observer>
+            )}
+          />
+        </Switch>
       </div>
     );
   }
 }
 
-export default observer(App);
+export default withRouter(observer(App));
