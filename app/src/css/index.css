@@ -43,6 +43,12 @@ body {
   object-fit: cover;
 }
 
+.beheer-links {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 /* table */
 
 section.the-css-at-table {
@@ -111,11 +117,6 @@ section.the-css-at-table .spacer {
 
 /* buttons */
 
-.bttn {
-  color: #fff;
-  transition: 0.3s ease all;
-}
-
 input[type="submit"] {
   background: none;
 }
@@ -130,14 +131,19 @@ input[type="submit"]:hover {
 }
 
 .bttn {
+  color: #fff;
+  transition: 0.3s ease all;
+  text-decoration: none;
   font-size: 1.8rem;
   letter-spacing: 0.2rem;
   text-transform: uppercase;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   width: 27rem;
   font-weight: bold;
-  padding: 1.4rem 0rem;
+  padding: 2rem 1rem;
   border: 0.1rem solid #fff;
   position: relative;
 }

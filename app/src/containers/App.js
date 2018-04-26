@@ -29,13 +29,19 @@ class App extends Component {
                     <section>
                       <h2>Totaal werkuren</h2>
                       <OverView workTotals={store.workTotals} />
-                      <p>Totaal loon: €{store.totalSalary}</p>
+                      <p>Totaal loon: € {store.totalSalary}</p>
                     </section>
-                    <section>
+                    <section className="beheer">
                       <h2>Beheer jouw werk plaatsen</h2>
-                      <Link to="/edit">Verander bestaande werkplaats</Link>
-                      <br />
-                      <Link to="/add">Voeg werkplaats toe</Link>
+                      <div className="beheer-links">
+                        <Link className="bttn" to="/edit">
+                          Verander bestaande werkplaats
+                        </Link>
+                        <br />
+                        <Link className="bttn" to="/add">
+                          Voeg werkplaats toe
+                        </Link>
+                      </div>
                     </section>
                   </div>
                 )}
@@ -48,7 +54,9 @@ class App extends Component {
               <Observer>
                 {() => (
                   <article>
-                    <Link to="/">← terug</Link>
+                    <Link className="bttn" to="/">
+                      ← go back home
+                    </Link>
                     <h3>Verander bestaande werkplaats</h3>
                     <div className="work-option-wrap">
                       {store.workOptions.map(workOption => (
@@ -69,7 +77,9 @@ class App extends Component {
               <Observer>
                 {() => (
                   <article>
-                    <Link to="/">← terug</Link>
+                    <Link className="bttn" to="/">
+                      ← go back home
+                    </Link>
                     <h3>Voeg werkplaats toe</h3>
                     <AddWorkOption store={store} />
                   </article>
