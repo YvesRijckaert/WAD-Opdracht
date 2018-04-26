@@ -24,7 +24,9 @@ const WorkPlaces = ({ store }) => {
         <p>EndHour</p>
         <input type="number" name="endHour" defaultValue={workOption.endHour} />
       </div>
-      <button onClick={() => addToWorkTotal(workOption)}>Add To Table</button>
+      <a className="bttn" onClick={() => addToWorkTotal(workOption)}>
+        Add To Table
+      </a>
     </article>
   ));
 };

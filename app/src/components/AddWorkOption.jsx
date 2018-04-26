@@ -29,7 +29,12 @@ const AddWorkOption = ({ store }) => {
       <input name="startHour" type="number" defaultValue="0" step="1" />
       <input name="endHour" type="number" defaultValue="0" step="1" />
       <input name="salary" type="number" defaultValue="0" step="1" />
-      <input type="submit" value="Toevoegen" />
+      <input
+        id="bttn"
+        className="bttn"
+        type="submit"
+        defaultValue="Toevoegen"
+      />
     </form>
   );
 };

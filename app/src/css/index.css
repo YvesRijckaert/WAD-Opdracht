@@ -1,3 +1,13 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
 body {
   margin: 5rem;
   background-color: #e56b5e;
@@ -93,4 +103,57 @@ section.the-css-at-table .spacer {
     width: 30%;
     font-weight: bold;
   }
+}
+
+/* buttons */
+
+.bttn {
+  color: #fff;
+  transition: 0.3s ease all;
+}
+
+input[type="submit"] {
+  background: none;
+}
+
+.bttn:hover {
+  color: #e56b5e;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background: #fff;
+}
+
+.bttn {
+  font-size: 1.8rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  width: 27rem;
+  font-weight: bold;
+  padding: 1.4rem 0rem;
+  border: 0.3rem solid #fff;
+  position: relative;
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.16),
+    0rem 0.3rem 0.6rem rgba(0, 0, 0, 0.1);
+}
+.bttn:before {
+  transition: 0.5s all ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0;
+  content: "";
+  background-color: #fff;
+  z-index: -2;
+}
+.bttn:hover:before {
+  transition: 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
 }
