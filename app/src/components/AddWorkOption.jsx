@@ -22,13 +22,75 @@ const AddWorkOption = ({ store }) => {
   };
 
   return (
-    <form onSubmit={handleSubmitForm}>
-      <input name="name" defaultValue="" type="text" />
-      <input name="location" defaultValue="" type="text" />
-      <input name="pic" type="file" accept="image/*" />
-      <input name="startHour" type="number" defaultValue="0" step="1" />
-      <input name="endHour" type="number" defaultValue="0" step="1" />
-      <input name="salary" type="number" defaultValue="0" step="1" />
+    <form className="add-form" onSubmit={handleSubmitForm}>
+      <div className="form-add-info">
+        <fieldset class="ui-input">
+          <input
+            type="text"
+            id="naam"
+            tabindex="0"
+            name="name"
+            defaultValue=""
+          />
+          <label for="naam">
+            <span>Naam</span>
+          </label>
+        </fieldset>
+        <fieldset class="ui-input">
+          <input
+            type="text"
+            id="locatie"
+            tabindex="0"
+            name="location"
+            defaultValue=""
+          />
+          <label for="locatie">
+            <span>Locatie</span>
+          </label>
+        </fieldset>
+        <input name="pic" type="file" accept="image/*" />
+      </div>
+      <div className="form-add-number">
+        <fieldset class="ui-input">
+          <input
+            type="number"
+            id="startuur"
+            tabindex="0"
+            name="startHour"
+            defaultValue=""
+            step="1"
+          />
+          <label for="startuur">
+            <span>Startuur</span>
+          </label>
+        </fieldset>
+        <fieldset class="ui-input">
+          <input
+            type="number"
+            id="einduur"
+            tabindex="0"
+            name="endHour"
+            defaultValue=""
+            step="1"
+          />
+          <label for="einduur">
+            <span>Einduur</span>
+          </label>
+        </fieldset>
+        <fieldset class="ui-input">
+          <input
+            type="number"
+            id="loon"
+            tabindex="0"
+            name="salary"
+            defaultValue=""
+            step="1"
+          />
+          <label for="loon">
+            <span>Loon (€ / uur)</span>
+          </label>
+        </fieldset>
+      </div>
       <input
         id="bttn"
         className="bttn"

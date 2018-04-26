@@ -24,9 +24,11 @@ class App extends Component {
           <h2>Beheer jouw werk plaatsen</h2>
           <article>
             <h3>Verander bestaande werkplaats</h3>
-            {store.workOptions.map(workOption => (
-              <EditWorkOption key={workOption.id} workOption={workOption} />
-            ))}
+            <div className="work-option-wrap">
+              {store.workOptions.map(workOption => (
+                <EditWorkOption key={workOption.id} workOption={workOption} />
+              ))}
+            </div>
           </article>
           <article>
             <h3>Voeg werkplaats toe</h3>
