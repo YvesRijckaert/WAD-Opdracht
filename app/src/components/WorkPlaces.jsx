@@ -44,7 +44,7 @@ const WorkPlaces = ({ store }) => {
         </fieldset>
       </div>
       <a className="bttn" onClick={() => addToWorkTotal(workOption)}>
-        Add To Table
+        Toevoegen
       </a>
     </article>
   ));

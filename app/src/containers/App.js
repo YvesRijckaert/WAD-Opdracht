@@ -29,16 +29,17 @@ class App extends Component {
                     <section>
                       <h2>Totaal werkuren</h2>
                       <OverView workTotals={store.workTotals} />
-                      <p>Totaal loon: € {store.totalSalary}</p>
+                      <p>Totaal loon netto: € {store.totalSalary}</p>
+                      <p>Je mag nog x uren werken</p>
                     </section>
                     <section className="beheer">
-                      <h2>Beheer jouw werk plaatsen</h2>
+                      <h2>Beheer</h2>
                       <div className="beheer-links">
-                        <Link className="bttn" to="/edit">
-                          Verander bestaande werkplaats
+                        <Link className="link" to="/edit">
+                          Verander werkplaats
                         </Link>
                         <br />
-                        <Link className="bttn" to="/add">
+                        <Link className="link" to="/add">
                           Voeg werkplaats toe
                         </Link>
                       </div>

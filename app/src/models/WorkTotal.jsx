@@ -21,7 +21,7 @@ class WorkTotal {
   };
 
   get totalSalary() {
-    //berekening om de salary van die dag te doen
+    return 0;
   }
 }
 decorate(WorkTotal, {
