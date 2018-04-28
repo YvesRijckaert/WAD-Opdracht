@@ -26,15 +26,15 @@ const app = express(); //nieuwe express app
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-//   next();
-// });
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+  next();
+});
 
 //vang de route op (request), begin vanaf de app (home)
 //je krijgt request en response binnen
@@ -44,7 +44,7 @@ app.get("/", (req, res) => {
   });
 });
 
-// require("./app/routes/tweet.routes.js")(app);
+require("./app/routes/workOption.routes.js")(app);
 
 //luister naar de juiste poort
 app.listen(4000, () => {
