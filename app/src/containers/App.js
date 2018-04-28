@@ -4,6 +4,7 @@ import WorkPlaces from "../components/WorkPlaces";
 import OverView from "../components/OverView";
 import EditWorkOption from "../components/EditWorkOption";
 import AddWorkOption from "../components/AddWorkOption";
+import NotFound from "../components/NotFound";
 import { Switch, Route, Link, withRouter } from "react-router-dom";
 import { Observer } from "mobx-react";
 
@@ -88,6 +89,7 @@ class App extends Component {
               </Observer>
             )}
           />
+          <Route component={NotFound} />
         </Switch>
       </div>
     );
