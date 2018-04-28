@@ -18,12 +18,11 @@ const WorkPlaces = ({ store }) => {
         <fieldset class="ui-input">
           <input
             type="number"
-            value={workOption.startHour}
+            defaultValue={workOption.startHour}
             step="0.5"
             id="startuur"
             tabindex="0"
             name="startHour"
-            defaultValue=""
           />
           <label for="startuur">
             <span>Startuur</span>
