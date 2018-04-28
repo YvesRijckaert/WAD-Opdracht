@@ -24,69 +24,48 @@ const AddWorkOption = ({ store }) => {
   return (
     <form className="add-form" onSubmit={handleSubmitForm}>
       <div className="form-add-info">
-        <fieldset class="ui-input">
-          <input
-            type="text"
-            id="naam"
-            tabindex="0"
-            name="name"
-            defaultValue=""
-          />
-          <label for="naam">
+        <fieldset className="ui-input">
+          <input type="text" id="naam" tabIndex="0" name="name" />
+          <label htmlFor="naam">
             <span>Naam</span>
           </label>
         </fieldset>
-        <fieldset class="ui-input">
-          <input
-            type="text"
-            id="locatie"
-            tabindex="0"
-            name="location"
-            defaultValue=""
-          />
-          <label for="locatie">
+        <fieldset className="ui-input">
+          <input type="text" id="locatie" tabIndex="0" name="location" />
+          <label htmlFor="locatie">
             <span>Locatie</span>
           </label>
         </fieldset>
         <input name="pic" type="file" accept="image/*" />
       </div>
       <div className="form-add-number">
-        <fieldset class="ui-input">
+        <fieldset className="ui-input">
           <input
             type="number"
             id="startuur"
-            tabindex="0"
+            tabIndex="0"
             name="startHour"
-            defaultValue=""
             step="1"
           />
-          <label for="startuur">
+          <label htmlFor="startuur">
             <span>Startuur</span>
           </label>
         </fieldset>
-        <fieldset class="ui-input">
+        <fieldset className="ui-input">
           <input
             type="number"
             id="einduur"
-            tabindex="0"
+            tabIndex="0"
             name="endHour"
-            defaultValue=""
             step="1"
           />
-          <label for="einduur">
+          <label htmlFor="einduur">
             <span>Einduur</span>
           </label>
         </fieldset>
-        <fieldset class="ui-input">
-          <input
-            type="number"
-            id="loon"
-            tabindex="0"
-            name="salary"
-            defaultValue=""
-            step="1"
-          />
-          <label for="loon">
+        <fieldset className="ui-input">
+          <input type="number" id="loon" tabIndex="0" name="salary" step="1" />
+          <label htmlFor="loon">
             <span>Loon (€ / uur)</span>
           </label>
         </fieldset>
