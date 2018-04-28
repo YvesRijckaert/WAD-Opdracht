@@ -60,6 +60,7 @@ class App extends Component {
                       ← go back home
                     </Link>
                     <h3>Verander bestaande werkplaats</h3>
+                    <p>(Worden automatisch aangepast.)</p>
                     <div className="work-option-wrap">
                       {store.workOptions.map(workOption => (
                         <EditWorkOption
