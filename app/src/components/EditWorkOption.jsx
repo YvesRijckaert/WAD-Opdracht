@@ -5,76 +5,71 @@ import { PropTypes } from "prop-types";
 const EditWorkOption = ({ workOption }) => {
   return (
     <form>
-      <fieldset class="ui-input">
+      <fieldset className="ui-input">
         <input
           type="text"
-          value={workOption.name}
+          defaultValue={workOption.name}
           onChange={e => workOption.updateName(e.target.value)}
           id="naam"
-          tabindex="0"
+          tabIndex="0"
           name="name"
-          defaultValue=""
         />
-        <label for="naam">
+        <label htmlFor="naam">
           <span>Naam</span>
         </label>
       </fieldset>
-      <fieldset class="ui-input">
+      <fieldset className="ui-input">
         <input
           type="text"
-          value={workOption.location}
+          defaultValue={workOption.location}
           onChange={e => workOption.updateLocation(e.target.value)}
           id="locatie"
-          tabindex="0"
+          tabIndex="0"
           name="location"
-          defaultValue=""
         />
-        <label for="locatie">
+        <label htmlFor="locatie">
           <span>Locatie</span>
         </label>
       </fieldset>
-      <fieldset class="ui-input">
+      <fieldset className="ui-input">
         <input
           type="number"
-          value={workOption.startHour}
+          defaultValue={workOption.startHour}
           step="0.5"
           onChange={e => workOption.updateStartHour(e.target.value)}
           id="startuur"
-          tabindex="0"
+          tabIndex="0"
           name="startHour"
-          defaultValue=""
         />
-        <label for="startuur">
+        <label htmlFor="startuur">
           <span>Startuur</span>
         </label>
       </fieldset>
-      <fieldset class="ui-input">
+      <fieldset className="ui-input">
         <input
           type="number"
-          value={workOption.endHour}
+          defaultValue={workOption.endHour}
           step="0.5"
           onChange={e => workOption.updateEndHour(e.target.value)}
           id="einduur"
-          tabindex="0"
+          tabIndex="0"
           name="endHour"
-          defaultValue=""
         />
-        <label for="einduur">
+        <label htmlFor="einduur">
           <span>Einduur</span>
         </label>
       </fieldset>
-      <fieldset class="ui-input">
+      <fieldset className="ui-input">
         <input
           type="number"
           id="loon"
-          tabindex="0"
+          tabIndex="0"
           name="salary"
-          defaultValue=""
           step="1"
           onChange={e => workOption.updateSalaryPerHour(e.target.value)}
-          value={workOption.salaryPerHour}
+          defaultValue={workOption.salaryPerHour}
         />
-        <label for="loon">
+        <label htmlFor="loon">
           <span>Loon (€ / uur)</span>
         </label>
       </fieldset>

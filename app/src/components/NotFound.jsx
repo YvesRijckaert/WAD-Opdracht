@@ -5,7 +5,7 @@ const NotFound = () => {
   return (
     <section className="notfound">
       <h2>
-        404 not found{` `}
+        404 not found
         <span aria-label="sad" role="img">
           😞
         </span>

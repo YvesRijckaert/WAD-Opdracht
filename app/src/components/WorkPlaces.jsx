@@ -15,29 +15,29 @@ const WorkPlaces = ({ store }) => {
       />
       <div className="work-item-info">
         <h3 className="work-item-title">{workOption.name}</h3>
-        <fieldset class="ui-input">
+        <fieldset className="ui-input">
           <input
             type="number"
             defaultValue={workOption.startHour}
             step="0.5"
             id="startuur"
-            tabindex="0"
+            tabIndex="0"
             name="startHour"
           />
-          <label for="startuur">
+          <label htmlFor="startuur">
             <span>Startuur</span>
           </label>
         </fieldset>
-        <fieldset class="ui-input">
+        <fieldset className="ui-input">
           <input
             type="number"
             defaultValue={workOption.endHour}
             step="0.5"
             id="einduur"
-            tabindex="0"
+            tabIndex="0"
             name="endHour"
           />
-          <label for="einduur">
+          <label htmlFor="einduur">
             <span>Einduur</span>
           </label>
         </fieldset>
