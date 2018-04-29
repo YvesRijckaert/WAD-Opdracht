@@ -1,9 +1,7 @@
-import { decorate, observable, action, computed, configure } from "mobx";
+import { decorate, observable, action, computed } from "mobx";
 import WorkOption from "../models/WorkOption";
 import WorkTotal from "../models/WorkTotal";
 import Api from "../api/workOptions";
-
-configure({ enforceActions: true });
 
 class Store {
   workTotals = [];
@@ -13,10 +11,26 @@ class Store {
     this.api = new Api();
     this.api.getAll().then(workOptions => this._add(...workOptions));
     this.addWorkOption(
-      new WorkOption(`Budacafé`, `Kortrijk`, `assets/img/buda.jpg`, 9, 17, 11)
+      new WorkOption(
+        `Budacafé`,
+        `Kortrijk`,
+        `assets/img/buda.jpg`,
+        9,
+        17,
+        11,
+        this.removeWorkOption
+      )
     );
     this.addWorkOption(
-      new WorkOption(`Howest`, `Kortrijk`, `assets/img/howest.jpg`, 9, 17, 10)
+      new WorkOption(
+        `Howest`,
+        `Kortrijk`,
+        `assets/img/howest.jpg`,
+        9,
+        17,
+        10,
+        this.removeWorkOption
+      )
     );
     this.addWorkOption(
       new WorkOption(
@@ -25,7 +39,8 @@ class Store {
         `assets/img/infernal.jpg`,
         9,
         17,
-        11
+        11,
+        this.removeWorkOption
       )
     );
   }
@@ -41,7 +56,15 @@ class Store {
         salaryPerHour
       } = workOption;
       this.workOptions.push(
-        new workOption(name, location, src, startHour, endHour, salaryPerHour)
+        new WorkOption(
+          name,
+          location,
+          src,
+          startHour,
+          endHour,
+          salaryPerHour,
+          this.removeWorkOption
+        )
       );
     });
   };
@@ -60,12 +83,16 @@ class Store {
     if (workOptie) {
       workOptie.increment();
     } else {
-      this.workTotals.push(new WorkTotal(work, this.removeOrder));
+      this.workTotals.push(new WorkTotal(work, this.removeWork));
     }
   };
 
-  removeOrder = work => {
+  removeWork = work => {
     this.workTotals.remove(work);
+  };
+
+  removeWorkOption = workOption => {
+    this.workOptions.remove(workOption);
   };
 
   get totalSalary() {
@@ -78,7 +105,8 @@ decorate(Store, {
   workOptions: observable,
   addWorkOption: action, //enforceActions: true
   addToWorkTotal: action, //enforceActions: true
-  totalSalary: computed
+  totalSalary: computed,
+  add: action
 });
 
 const store = new Store();

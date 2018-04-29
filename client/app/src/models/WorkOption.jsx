@@ -2,7 +2,15 @@ import uniqid from "uniqid";
 import { decorate, observable, action } from "mobx";
 
 class WorkOption {
-  constructor(name, location, src, startHour, endHour, salaryPerHour) {
+  constructor(
+    name,
+    location,
+    src,
+    startHour,
+    endHour,
+    salaryPerHour,
+    removeWorkOption
+  ) {
     this.id = uniqid();
     this.name = name;
     this.location = location;
@@ -10,6 +18,7 @@ class WorkOption {
     this.startHour = startHour;
     this.endHour = endHour;
     this.salaryPerHour = salaryPerHour;
+    this.killMe = removeWorkOption;
   }
 
   updateName = value => {
@@ -34,6 +43,10 @@ class WorkOption {
 
   updateSalaryPerHour = value => {
     this.salaryPerHour = value;
+  };
+
+  delete = () => {
+    this.killMe(this);
   };
 }
 decorate(WorkOption, {

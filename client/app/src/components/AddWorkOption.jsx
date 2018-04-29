@@ -4,6 +4,8 @@ import WorkOption from "../models/WorkOption";
 import { PropTypes } from "prop-types";
 
 const AddWorkOption = ({ store }) => {
+  const { addWorkOption, add } = store;
+
   const handleSubmitForm = e => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -16,8 +18,8 @@ const AddWorkOption = ({ store }) => {
         form.endHour.value,
         form.salary.value
       );
-      store.addWorkOption(workOption);
-      store.add(workOption);
+      add(workOption);
+      addWorkOption(workOption);
       form.reset();
     }
   };

@@ -73,6 +73,11 @@ const EditWorkOption = ({ workOption }) => {
           <span>Loon (€ / uur)</span>
         </label>
       </fieldset>
+      <fieldset className="ui-input">
+        <a className="link" onClick={workOption.delete}>
+          verwijder
+        </a>
+      </fieldset>
     </form>
   );
 };
