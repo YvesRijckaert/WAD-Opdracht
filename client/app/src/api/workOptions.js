@@ -6,10 +6,19 @@ class Api {
   };
 
   create = content => {
-    return fetch(`${this.url}`, this.getOptions(`post`, { content })).then(r =>
-      r.json()
-    );
+    const options = {
+      method: `POST`,
+      headers: { "content-type": `application/json` },
+      body: JSON.stringify(content)
+    };
+    return fetch(`${this.url}`, options).then(r => r.json());
   };
+
+  // create = content => {
+  //   return fetch(`${this.url}`, this.getOptions(`post`, { content })).then(r =>
+  //     r.json()
+  //   );
+  // };
 
   update = workOption => {
     return fetch(

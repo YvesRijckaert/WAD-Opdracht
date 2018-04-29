@@ -1,25 +1,23 @@
 import React from "react";
 import { observer } from "mobx-react";
-import WorkOption from "../models/WorkOption";
 import { PropTypes } from "prop-types";
 
 const AddWorkOption = ({ store }) => {
-  const { addWorkOption, add } = store;
+  const { add } = store;
 
   const handleSubmitForm = e => {
     e.preventDefault();
     const form = e.currentTarget;
     if (form.name.value) {
-      const workOption = new WorkOption(
-        form.name.value,
-        form.location.value,
-        form.pic.value,
-        form.startHour.value,
-        form.endHour.value,
-        form.salary.value
-      );
-      add(workOption);
-      addWorkOption(workOption);
+      const workOptionContent = {
+        name: form.name.value,
+        location: form.location.value,
+        src: form.pic.value,
+        startHour: form.startHour.value,
+        endHour: form.endHour.value,
+        salaryPerHour: form.salary.value
+      };
+      add(workOptionContent);
       form.reset();
     }
   };

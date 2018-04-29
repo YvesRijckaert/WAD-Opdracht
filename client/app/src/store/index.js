@@ -71,9 +71,11 @@ class Store {
     });
   };
 
-  add = value => {
-    console.log(value);
-    this.api.create(value).then(workOption => this._add(workOption));
+  add = workOptionContent => {
+    console.log(workOptionContent);
+    this.api
+      .create(workOptionContent)
+      .then(workOption => this._add(workOption));
   };
 
   update = workOption => {
