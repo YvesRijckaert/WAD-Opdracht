@@ -18,7 +18,16 @@ const AddWorkOption = ({ store }) => {
       };
       add(workOptionContent);
       form.reset();
+      showFlash();
     }
+  };
+
+  const showFlash = () => {
+    const body = document.querySelector(`body`);
+    const flash = document.createElement(`div`);
+    flash.classList.add(`flash-info`);
+    flash.textContent = `Nieuwe werkplaats toegevoegd!`;
+    body.appendChild(flash);
   };
 
   return (
