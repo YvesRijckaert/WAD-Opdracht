@@ -10,7 +10,7 @@ html {
 
 body {
   margin: 5rem;
-  background-color: #e56b5e;
+  background-color: #000;
   font-family: "Montserrat", sans-serif;
   font-size: 2.5vmin;
   color: white;
@@ -18,6 +18,11 @@ body {
 
 h2 {
   text-align: center;
+}
+
+.error-message {
+  font-style: italic;
+  color: #e56b5e;
 }
 
 section:not(:first-child) {
@@ -173,7 +178,7 @@ input[type="submit"]:hover {
 
 .bttn:hover,
 .link:hover {
-  color: #e56b5e;
+  color: #000;
   cursor: pointer;
 }
 

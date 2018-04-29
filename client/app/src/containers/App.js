@@ -60,7 +60,18 @@ class App extends Component {
                       ← go back home
                     </Link>
                     <h3>Verander bestaande werkplaats</h3>
-                    <p>(Worden automatisch aangepast.)</p>
+                    {store.workOptions.length === 0 ? (
+                      <div>
+                        <p className="error-message">
+                          Nog geen werk plaatsen toegevoegd.
+                        </p>{` `}
+                        <Link className="link" to="/add">
+                          Voeg werkplaats toe
+                        </Link>
+                      </div>
+                    ) : (
+                      `Worden automatisch aangepast.`
+                    )}
                     <div className="work-option-wrap">
                       {store.workOptions.map(workOption => (
                         <EditWorkOption

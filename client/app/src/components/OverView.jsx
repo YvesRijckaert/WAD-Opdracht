@@ -3,7 +3,9 @@ import { observer, PropTypes } from "mobx-react";
 
 const OverView = ({ workTotals }) => {
   if (workTotals.length === 0) {
-    return <p>Je hebt nog geen werkdagen.</p>;
+    return (
+      <p className="error-message">Je hebt nog geen werkuren toegevoegd.</p>
+    );
   } else {
     return (
       <section className="the-css-at-table">
