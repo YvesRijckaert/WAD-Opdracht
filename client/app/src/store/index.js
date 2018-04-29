@@ -10,39 +10,39 @@ class Store {
   constructor() {
     this.api = new Api();
     this.api.getAll().then(workOptions => this._add(...workOptions));
-    this.addWorkOption(
-      new WorkOption(
-        `Budacafé`,
-        `Kortrijk`,
-        `assets/img/buda.jpg`,
-        9,
-        17,
-        11,
-        this.removeWorkOption
-      )
-    );
-    this.addWorkOption(
-      new WorkOption(
-        `Howest`,
-        `Kortrijk`,
-        `assets/img/howest.jpg`,
-        9,
-        17,
-        10,
-        this.removeWorkOption
-      )
-    );
-    this.addWorkOption(
-      new WorkOption(
-        `Bal infernal`,
-        `Gent`,
-        `assets/img/infernal.jpg`,
-        9,
-        17,
-        11,
-        this.removeWorkOption
-      )
-    );
+    // this.addWorkOption(
+    //   new WorkOption(
+    //     `Budacafé`,
+    //     `Kortrijk`,
+    //     `assets/img/buda.jpg`,
+    //     9,
+    //     17,
+    //     11,
+    //     this.removeWorkOption
+    //   )
+    // );
+    // this.addWorkOption(
+    //   new WorkOption(
+    //     `Howest`,
+    //     `Kortrijk`,
+    //     `assets/img/howest.jpg`,
+    //     9,
+    //     17,
+    //     10,
+    //     this.removeWorkOption
+    //   )
+    // );
+    // this.addWorkOption(
+    //   new WorkOption(
+    //     `Bal infernal`,
+    //     `Gent`,
+    //     `assets/img/infernal.jpg`,
+    //     9,
+    //     17,
+    //     11,
+    //     this.removeWorkOption
+    //   )
+    // );
   }
 
   _add = (...workOptions) => {
@@ -53,7 +53,8 @@ class Store {
         src,
         startHour,
         endHour,
-        salaryPerHour
+        salaryPerHour,
+        _id
       } = workOption;
       this.workOptions.push(
         new WorkOption(
@@ -63,7 +64,8 @@ class Store {
           startHour,
           endHour,
           salaryPerHour,
-          this.removeWorkOption
+          this.removeWorkOption,
+          _id
         )
       );
     });

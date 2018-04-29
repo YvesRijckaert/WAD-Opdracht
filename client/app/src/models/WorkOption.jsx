@@ -1,4 +1,3 @@
-import uniqid from "uniqid";
 import { decorate, observable, action } from "mobx";
 
 class WorkOption {
@@ -9,9 +8,9 @@ class WorkOption {
     startHour,
     endHour,
     salaryPerHour,
-    removeWorkOption
+    removeWorkOption,
+    id
   ) {
-    this.id = uniqid();
     this.name = name;
     this.location = location;
     this.src = src;
@@ -19,6 +18,7 @@ class WorkOption {
     this.endHour = endHour;
     this.salaryPerHour = salaryPerHour;
     this.killMe = removeWorkOption;
+    this.id = id;
   }
 
   updateName = value => {
