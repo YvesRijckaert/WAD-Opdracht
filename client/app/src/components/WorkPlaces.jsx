@@ -8,7 +8,9 @@ const WorkPlaces = ({ store }) => {
   if (workOptions.length === 0) {
     return (
       <div>
-        <p class="error-message">Je hebt nog geen werkplaatsen toegevoegd.</p>
+        <p className="error-message">
+          Je hebt nog geen werkplaatsen toegevoegd.
+        </p>
         <Link className="link" to="/add">
           Voeg werkplaats toe
         </Link>

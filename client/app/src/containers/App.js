@@ -64,19 +64,20 @@ class App extends Component {
                       <div>
                         <p className="error-message">
                           Nog geen werk plaatsen toegevoegd.
-                        </p>{` `}
+                        </p>
                         <Link className="link" to="/add">
                           Voeg werkplaats toe
                         </Link>
                       </div>
                     ) : (
-                      `Worden automatisch aangepast.`
+                      ``
                     )}
                     <div className="work-option-wrap">
                       {store.workOptions.map(workOption => (
                         <EditWorkOption
                           key={workOption.id}
                           workOption={workOption}
+                          update={store.update}
                         />
                       ))}
                     </div>

@@ -74,6 +74,17 @@ class Store {
     this.api.create(value).then(workOption => this._add(workOption));
   };
 
+  update = workOption => {
+    this.api.update(workOption).then(workOption => this._update(workOption));
+  };
+
+  _update = workOption => {
+    const index = this.workOptions.findIndex(
+      check => check.id === workOption.id
+    );
+    this.workOptions[index] = workOption;
+  };
+
   addWorkOption = workOption => {
     this.workOptions.push(workOption);
   };

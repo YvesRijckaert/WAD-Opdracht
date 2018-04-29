@@ -2,7 +2,10 @@ import React from "react";
 import { observer } from "mobx-react";
 import { PropTypes } from "prop-types";
 
-const EditWorkOption = ({ workOption }) => {
+const EditWorkOption = ({ workOption, update }) => {
+  const handeClickUpdate = () => {
+    update(workOption);
+  };
   return (
     <form>
       <fieldset className="ui-input">
@@ -72,6 +75,11 @@ const EditWorkOption = ({ workOption }) => {
         <label htmlFor="loon">
           <span>Loon (€ / uur)</span>
         </label>
+      </fieldset>
+      <fieldset className="ui-input">
+        <a className="link" onClick={handeClickUpdate}>
+          opslaan
+        </a>
       </fieldset>
       <fieldset className="ui-input">
         <a className="link" onClick={workOption.delete}>
