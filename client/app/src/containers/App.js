@@ -79,6 +79,7 @@ class App extends Component {
                           workOption={workOption}
                           update={store.update}
                           remove={store.remove}
+                          showFlash={store.showFlash}
                         />
                       ))}
                     </div>

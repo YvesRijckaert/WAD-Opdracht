@@ -2,13 +2,15 @@ import React from "react";
 import { observer } from "mobx-react";
 import { PropTypes } from "prop-types";
 
-const EditWorkOption = ({ workOption, update, remove }) => {
+const EditWorkOption = ({ workOption, update, remove, showFlash }) => {
   const handeClickUpdate = () => {
     update(workOption);
+    showFlash(`Werkplaats werd veranderd.`, `flash-info`);
   };
 
   const handeClickRemove = () => {
     remove(workOption);
+    showFlash(`Werkplaats werd verwijderd.`, `flash-error`);
   };
   return (
     <form>
