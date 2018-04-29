@@ -17,6 +17,7 @@ const AddWorkOption = ({ store }) => {
         form.salary.value
       );
       store.addWorkOption(workOption);
+      store.add(workOption);
       form.reset();
     }
   };

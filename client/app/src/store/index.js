@@ -1,17 +1,17 @@
 import { decorate, observable, action, computed, configure } from "mobx";
 import WorkOption from "../models/WorkOption";
 import WorkTotal from "../models/WorkTotal";
-import Api from "../api/tweets.js";
+import Api from "../api/workOptions";
 
 configure({ enforceActions: true });
 
 class Store {
-  workTotals = []; //orders
-  workOptions = []; //menu
+  workTotals = [];
+  workOptions = [];
 
   constructor() {
     this.api = new Api();
-    this.api.getAll().then(tweets => this._add(...tweets));
+    this.api.getAll().then(workOptions => this._add(...workOptions));
     this.addWorkOption(
       new WorkOption(`Budacafé`, `Kortrijk`, `assets/img/buda.jpg`, 9, 17, 11)
     );
@@ -29,6 +29,27 @@ class Store {
       )
     );
   }
+
+  _add = (...workOptions) => {
+    workOptions.forEach(workOption => {
+      const {
+        name,
+        location,
+        src,
+        startHour,
+        endHour,
+        salaryPerHour
+      } = workOption;
+      this.workOptions.push(
+        new workOption(name, location, src, startHour, endHour, salaryPerHour)
+      );
+    });
+  };
+
+  add = value => {
+    console.log(value);
+    this.api.create(value).then(workOption => this._add(workOption));
+  };
 
   addWorkOption = workOption => {
     this.workOptions.push(workOption);

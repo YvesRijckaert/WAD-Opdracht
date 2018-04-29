@@ -1,4 +1,4 @@
-const WorkOption = require("../models/workOption.model.js");
+const WorkOption = require("../models/WorkOption.model");
 
 //je krijgt altijd een request en een response binnen van al de functies
 
@@ -9,7 +9,7 @@ exports.create = (req, res) => {
     });
   }
 
-  const WorkOption = new WorkOption({
+  const workOption = new WorkOption({
     name: req.body.name,
     location: req.body.location,
     src: req.body.src,
@@ -18,7 +18,8 @@ exports.create = (req, res) => {
     salaryPerHour: req.body.salaryPerHour
   });
 
-  WorkOption.save()
+  workOption
+    .save()
     .then(data => {
       res.send(data);
     })
