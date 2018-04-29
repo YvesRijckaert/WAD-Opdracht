@@ -2,9 +2,13 @@ import React from "react";
 import { observer } from "mobx-react";
 import { PropTypes } from "prop-types";
 
-const EditWorkOption = ({ workOption, update }) => {
+const EditWorkOption = ({ workOption, update, remove }) => {
   const handeClickUpdate = () => {
     update(workOption);
+  };
+
+  const handeClickRemove = () => {
+    remove(workOption);
   };
   return (
     <form>
@@ -82,7 +86,7 @@ const EditWorkOption = ({ workOption, update }) => {
         </a>
       </fieldset>
       <fieldset className="ui-input">
-        <a className="link" onClick={workOption.delete}>
+        <a className="link" onClick={handeClickRemove}>
           verwijder
         </a>
       </fieldset>

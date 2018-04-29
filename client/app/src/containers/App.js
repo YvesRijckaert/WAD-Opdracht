@@ -78,6 +78,7 @@ class App extends Component {
                           key={workOption.id}
                           workOption={workOption}
                           update={store.update}
+                          remove={store.remove}
                         />
                       ))}
                     </div>

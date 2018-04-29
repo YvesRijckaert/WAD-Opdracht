@@ -87,6 +87,14 @@ class Store {
     this.workOptions[index] = workOption;
   };
 
+  remove = workOption => {
+    this.api.remove(workOption).then(() => this._remove(workOption));
+  };
+
+  _remove = workOption => {
+    this.workOptions.remove(workOption);
+  };
+
   addWorkOption = workOption => {
     this.workOptions.push(workOption);
   };
