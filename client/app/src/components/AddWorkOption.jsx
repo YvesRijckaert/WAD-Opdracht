@@ -12,7 +12,6 @@ const AddWorkOption = ({ store }) => {
       const workOptionContent = {
         name: form.name.value,
         location: form.location.value,
-        src: form.pic.value,
         startHour: form.startHour.value,
         endHour: form.endHour.value,
         salaryPerHour: form.salary.value
@@ -37,7 +36,6 @@ const AddWorkOption = ({ store }) => {
             <span>Locatie</span>
           </label>
         </fieldset>
-        <input name="pic" type="file" accept="image/*" />
       </div>
       <div className="form-add-number">
         <fieldset className="ui-input">

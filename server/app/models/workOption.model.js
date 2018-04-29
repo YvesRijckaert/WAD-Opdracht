@@ -4,7 +4,6 @@ const WorkOptionSchema = mongoose.Schema(
   {
     name: String,
     location: String,
-    src: String,
     startHour: Number,
     endHour: Number,
     salaryPerHour: Number

@@ -12,7 +12,6 @@ exports.create = (req, res) => {
   const workOption = new WorkOption({
     name: req.body.name,
     location: req.body.location,
-    src: req.body.src,
     startHour: req.body.startHour,
     endHour: req.body.endHour,
     salaryPerHour: req.body.salaryPerHour
@@ -77,7 +76,6 @@ exports.update = (req, res) => {
     {
       name: req.body.name,
       location: req.body.location,
-      src: req.body.src,
       startHour: req.body.startHour,
       endHour: req.body.endHour,
       salaryPerHour: req.body.salaryPerHour

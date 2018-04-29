@@ -19,13 +19,6 @@ const WorkPlaces = ({ store }) => {
   } else {
     return workOptions.map(workOption => (
       <article className="work-item" key={workOption.id}>
-        <img
-          src={workOption.src}
-          alt={workOption.name}
-          className="work-item-image"
-          width="150"
-          height="150"
-        />
         <div className="work-item-info">
           <h3 className="work-item-title">{workOption.name}</h3>
           <fieldset className="ui-input">

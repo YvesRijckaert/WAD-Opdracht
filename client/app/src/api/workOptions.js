@@ -14,12 +14,6 @@ class Api {
     return fetch(`${this.url}`, options).then(r => r.json());
   };
 
-  // create = content => {
-  //   return fetch(`${this.url}`, this.getOptions(`post`, { content })).then(r =>
-  //     r.json()
-  //   );
-  // };
-
   update = workOption => {
     return fetch(
       `${this.url}/${workOption.id}`,
