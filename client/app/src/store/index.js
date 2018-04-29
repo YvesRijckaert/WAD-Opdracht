@@ -122,6 +122,14 @@ class Store {
     //hier berekening doen om de totale salary van alle werkplaatsen te hebben
     return 0;
   }
+
+  showFlash = (text, type) => {
+    const body = document.querySelector(`body`);
+    const flash = document.createElement(`div`);
+    flash.classList.add(`${type}`);
+    flash.textContent = `${text}`;
+    body.appendChild(flash);
+  };
 }
 decorate(Store, {
   workTotals: observable,
