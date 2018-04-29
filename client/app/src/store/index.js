@@ -1,6 +1,7 @@
 import { decorate, observable, action, computed, configure } from "mobx";
 import WorkOption from "../models/WorkOption";
 import WorkTotal from "../models/WorkTotal";
+import Api from "../api/tweets.js";
 
 configure({ enforceActions: true });
 
@@ -9,6 +10,8 @@ class Store {
   workOptions = []; //menu
 
   constructor() {
+    this.api = new Api();
+    this.api.getAll().then(tweets => this._add(...tweets));
     this.addWorkOption(
       new WorkOption(`Budacafé`, `Kortrijk`, `assets/img/buda.jpg`, 9, 17, 11)
     );

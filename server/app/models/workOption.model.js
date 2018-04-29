@@ -1,3 +1,5 @@
+const mongoose = require("mongoose");
+
 const WorkOptionSchema = mongoose.Schema(
   {
     name: String,

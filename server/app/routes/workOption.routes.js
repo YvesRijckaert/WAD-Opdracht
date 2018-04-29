@@ -1,5 +1,5 @@
 module.exports = app => {
-  const tweets = require("../controllers/workOption.controller.js");
+  const workOptions = require("../controllers/workOption.controller.js");
   app.post("/workOptions", workOptions.create);
   app.get("/workOptions", workOptions.findAll);
   app.get("/workOptions/:workOptionId", workOptions.findOne);
