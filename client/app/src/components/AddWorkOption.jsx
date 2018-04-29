@@ -45,7 +45,9 @@ const AddWorkOption = ({ store }) => {
             id="startuur"
             tabIndex="0"
             name="startHour"
-            step="1"
+            step="0.5"
+            min="0"
+            max="24"
           />
           <label htmlFor="startuur">
             <span>Startuur</span>
@@ -57,14 +59,24 @@ const AddWorkOption = ({ store }) => {
             id="einduur"
             tabIndex="0"
             name="endHour"
-            step="1"
+            step="0.5"
+            min="0"
+            max="24"
           />
           <label htmlFor="einduur">
             <span>Einduur</span>
           </label>
         </fieldset>
         <fieldset className="ui-input">
-          <input type="number" id="loon" tabIndex="0" name="salary" step="1" />
+          <input
+            type="number"
+            id="loon"
+            tabIndex="0"
+            name="salary"
+            step="0.5"
+            min="0"
+            max="99"
+          />
           <label htmlFor="loon">
             <span>Loon (€ / uur)</span>
           </label>

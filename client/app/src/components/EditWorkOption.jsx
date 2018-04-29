@@ -5,12 +5,12 @@ import { PropTypes } from "prop-types";
 const EditWorkOption = ({ workOption, update, remove, showFlash }) => {
   const handeClickUpdate = () => {
     update(workOption);
-    showFlash(`Werkplaats werd veranderd.`, `flash-info`);
+    showFlash(`Opgeslagen.`, `flash-info`);
   };
 
   const handeClickRemove = () => {
     remove(workOption);
-    showFlash(`Werkplaats werd verwijderd.`, `flash-error`);
+    showFlash(`Verwijderd.`, `flash-error`);
   };
   return (
     <form>
@@ -49,6 +49,8 @@ const EditWorkOption = ({ workOption, update, remove, showFlash }) => {
           id="startuur"
           tabIndex="0"
           name="startHour"
+          min="0"
+          max="24"
         />
         <label htmlFor="startuur">
           <span>Startuur</span>
@@ -63,6 +65,8 @@ const EditWorkOption = ({ workOption, update, remove, showFlash }) => {
           id="einduur"
           tabIndex="0"
           name="endHour"
+          min="0"
+          max="24"
         />
         <label htmlFor="einduur">
           <span>Einduur</span>
@@ -77,6 +81,8 @@ const EditWorkOption = ({ workOption, update, remove, showFlash }) => {
           step="1"
           onChange={e => workOption.updateSalaryPerHour(e.target.value)}
           defaultValue={workOption.salaryPerHour}
+          min="0"
+          max="99"
         />
         <label htmlFor="loon">
           <span>Loon (€ / uur)</span>

@@ -29,6 +29,8 @@ const WorkPlaces = ({ store }) => {
               id="startuur"
               tabIndex="0"
               name="startHour"
+              min="0"
+              max="24"
             />
             <label htmlFor="startuur">
               <span>Startuur</span>
@@ -42,6 +44,8 @@ const WorkPlaces = ({ store }) => {
               id="einduur"
               tabIndex="0"
               name="endHour"
+              min="0"
+              max="24"
             />
             <label htmlFor="einduur">
               <span>Einduur</span>

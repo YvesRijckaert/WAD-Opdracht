@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  margin: 5rem;
+  margin: 1rem 5rem;
   background-color: #000;
   font-family: "Montserrat", sans-serif;
   font-size: 2.5vmin;
@@ -223,7 +223,7 @@ input[type="submit"]:hover {
 }
 
 .form-add-number {
-  align-items: center;
+  padding-left: 3rem;
 }
 
 #bttn {
@@ -256,13 +256,14 @@ input[type="submit"]:hover {
 }
 
 input[type="number"] {
-  width: 50%;
+  width: 10rem;
   border: 0.1rem solid white;
   text-align: center;
 }
 
 .work-option-wrap {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
