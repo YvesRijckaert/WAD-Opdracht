@@ -1,3 +1,7 @@
 server/.DS_Store
 server/node_modules
 client/node_modules
+.DS_Store
+client/.DS_Store
+server/app/.DS_Store
+client/app/.DS_Store
