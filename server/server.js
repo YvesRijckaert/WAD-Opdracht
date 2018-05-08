@@ -2,9 +2,19 @@ const express = require("express"); //laad express in
 const bodyParser = require("body-parser"); //laad body-parser in
 const cors = require("cors"); //laad CORS in
 
-//laad de database config in en laad mongoose in (DAO-achtig => om met objecten te werken)
+//laad graphql in en apollo
+const {
+  graphqlExpress,
+  graphiqlExpress
+} = require("apollo-server-express");
+const {
+  makeExecutableSchema
+} = require("graphql-tools");
+
+// laad de database config in en laad mongoose in (DAO-achtig => om met objecten te werken)
 const dbConfig = require("./config/database.js");
 const mongoose = require("mongoose");
+
 
 //Promises gaan fixen (config setting)
 mongoose.Promise = global.Promise;
@@ -21,12 +31,22 @@ mongoose
   });
 
 const app = express(); //nieuwe express app
+const PORT = 4000;
+
+const typeDefs = require("./schema.gql");
+const resolvers = require("./resolvers.js");
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers
+});
 
 //configureer bodyParser
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
@@ -35,6 +55,14 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
   next();
 });
+
+//we gebruiken graphql
+app.use("/graphql", bodyParser.json(), graphqlExpress({
+  schema
+}));
+app.use("/graphiql", graphiqlExpress({
+  endpointURL: "/graphql"
+}));
 
 //vang de route op (request), begin vanaf de app (home)
 //je krijgt request en response binnen
@@ -47,6 +75,6 @@ app.get("/", (req, res) => {
 require("./app/routes/workOption.routes.js")(app);
 
 //luister naar de juiste poort
-app.listen(4000, () => {
-  console.log("Ik ben aan het luisteren op de poort 4000");
+app.listen(PORT, () => {
+  console.log(`Go to http://localhost:${PORT}/graphiql to run queries!`);
 });

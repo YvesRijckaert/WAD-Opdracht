@@ -1,0 +1,27 @@
+module.exports = `
+  type User {
+    name: String
+    age: Int
+  }
+
+  type Address {
+    city: String
+    street: String
+  }
+
+  type Query {
+    allUsers: [User]
+    allAddresses: [Address]
+  }
+
+  type Mutation {
+    addUser(
+      name:String!,
+      age: Int,
+    ):User
+    addAddress(
+      city:String!,
+      street: String
+    ):Address
+  }
+`
