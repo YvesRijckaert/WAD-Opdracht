@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect("mongodb://localhost:27017/mongodb-graphql-demo");
+mongoose.connect("mongodb://localhost:27017/yves-rijckaert-myhours-worktotals");
 
 const AddressSchema = mongoose.Schema({
   city: String,
