@@ -1,27 +1,15 @@
 module.exports = `
-  type User {
+  type WorkTotal {
     name: String
-    age: Int
-  }
-
-  type Address {
-    city: String
-    street: String
   }
 
   type Query {
-    allUsers: [User]
-    allAddresses: [Address]
+    allWorkTotals: [WorkTotal]
   }
 
   type Mutation {
-    addUser(
+    addWorkTotals(
       name:String!,
-      age: Int,
-    ):User
-    addAddress(
-      city:String!,
-      street: String
-    ):Address
+    ):WorkTotal
   }
 `

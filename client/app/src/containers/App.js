@@ -8,6 +8,9 @@ import NotFound from "../components/NotFound";
 import { Switch, Route, Link, withRouter } from "react-router-dom";
 import { Observer } from "mobx-react";
 
+import { Query } from "react-apollo";
+import GET_ALL_WORKTOTALS from "../graphql/getAllWorkTotals";
+
 class App extends Component {
   render() {
     const { store } = this.props;
@@ -27,12 +30,19 @@ class App extends Component {
                         <WorkPlaces store={store} />
                       </div>
                     </section>
-                    <section>
-                      <h2>Totaal werkuren</h2>
-                      <OverView workTotals={store.workTotals} />
-                      <p>Totaal loon netto: € {store.totalSalary}</p>
-                      <p>Je mag nog x uren werken</p>
-                    </section>
+                    <Query query={GET_ALL_WORKTOTALS}>
+                    {({ loading, error, data: { WorkTotals } }) => {
+                      if (loading) return <p>Loading...</p>;
+                      if (error) return <p>Error...</p>;
+                      return (
+                      <section>
+                        <h2>Totaal werkuren</h2>
+                        <OverView workTotals={WorkTotals} />
+                        <p>Totaal loon netto: € {store.totalSalary}</p>
+                        <p>Je mag nog x uren werken</p>
+                      </section>
+                      );}}
+                    </Query>
                     <section className="beheer">
                       <h2>Beheer</h2>
                       <div className="beheer-links">

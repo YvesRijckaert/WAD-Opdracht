@@ -1,23 +1,16 @@
 const {
-  User,
-  Address
+  WorkTotal
 } = require("./connectors");
 
 module.exports = {
   Query: {
-    allUsers() {
-      return User.find();
-    },
-    allAddresses() {
-      return Address.find();
+    allWorkTotals() {
+      return WorkTotal.find();
     }
   },
   Mutation: {
-    addUser(_, args) {
-      return new User(args).save();
-    },
-    addAddress(_, args) {
-      return new Address(args).save();
+    addWorkTotals(_, args) {
+      return new WorkTotal(args).save();
     }
   }
 };

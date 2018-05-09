@@ -31,7 +31,7 @@ mongoose
   });
 
 const app = express(); //nieuwe express app
-const PORT = 4000;
+const PORT = 4000; //graphql database
 
 const typeDefs = require("./schema.gql");
 const resolvers = require("./resolvers.js");
