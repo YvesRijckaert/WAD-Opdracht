@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 mongoose.Promise = global.Promise;
 
 mongoose.connect("mongodb://localhost:27017/yves-rijckaert-myhours-worktotals");
@@ -10,18 +9,19 @@ const WorkTotalSchema = mongoose.Schema({
   totalSalary: Number
 });
 
-// const WorkOption = {
-//   getOne() {
-//     return fetch("http://localhost:4000/workOptions")
-//       .then(res => res.json())
-//       .then(res => {
-//         return res[0];
-//       });
-//   }
-// };
+const WorkOptionSchema = mongoose.Schema({
+  _id: String,
+  name: String,
+  location: String,
+  startHour: Number,
+  endHour: Number,
+  salaryPerHour: Number
+});
 
 const WorkTotal = mongoose.model("workTotal", WorkTotalSchema);
+const WorkOption = mongoose.model("workOption", WorkOptionSchema);
 
 module.exports = {
-  WorkTotal
+  WorkTotal,
+  WorkOption
 };

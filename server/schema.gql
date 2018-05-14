@@ -5,9 +5,20 @@ module.exports = `
     totalSalary: Float
   }
 
+  type WorkOption {
+    _id: String,
+    name: String,
+    location: String
+    startHour: Float,
+    endHour: Float,
+    salaryPerHour: Float
+  }
+
   type Query {
     allWorkTotals: [WorkTotal]
     workTotal(_id:String!):WorkTotal
+    allWorkOptions: [WorkOption]
+    workOption(_id:String!):WorkOption
   }
 
   type Mutation {

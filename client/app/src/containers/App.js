@@ -10,6 +10,7 @@ import { Observer } from "mobx-react";
 
 import { Query } from "react-apollo";
 import GET_ALL_WORKTOTALS from "../graphql/getAllWorkTotals";
+import GET_ALL_WORKOPTIONS from "../graphql/getAllWorkOptions";
 
 class App extends Component {
   render() {
@@ -43,6 +44,13 @@ class App extends Component {
                             <p>Je mag nog x uren werken</p>
                           </section>
                         );
+                      }}
+                    </Query>
+                    <Query query={GET_ALL_WORKOPTIONS}>
+                      {({ loading, error, data: { allWorkOptions } }) => {
+                        if (loading) return <p>Loading...</p>;
+                        if (error) return <p>Error...</p>;
+                        return <p>{console.log(allWorkOptions)}</p>;
                       }}
                     </Query>
                     <section className="beheer">

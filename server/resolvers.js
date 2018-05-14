@@ -1,4 +1,4 @@
-const { WorkTotal } = require("./connectors");
+const { WorkTotal, WorkOption } = require("./connectors");
 
 module.exports = {
   Query: {
@@ -7,6 +7,12 @@ module.exports = {
     },
     workTotal(_, args) {
       return WorkTotal.findById(args._id);
+    },
+    allWorkOptions() {
+      return WorkOption.find();
+    },
+    workOption(_, args) {
+      return WorkOption.findById(args._id);
     }
   },
   Mutation: {
