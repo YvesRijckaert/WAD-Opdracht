@@ -11,6 +11,7 @@ import { Observer } from "mobx-react";
 import { Query } from "react-apollo";
 import GET_ALL_WORKTOTALS from "../graphql/getAllWorkTotals";
 import GET_ALL_WORKOPTIONS from "../graphql/getAllWorkOptions";
+
 import User from "../components/User";
 import ProtectedComponent from "../components/ProtectedComponent";
 import ProtectedRoute from "../components/ProtectedRoute";
@@ -20,6 +21,7 @@ class App extends Component {
     const { store } = this.props;
     return (
       <div className="App">
+        <User />
         <Switch>
           <Route
             path="/"
@@ -31,7 +33,14 @@ class App extends Component {
                     <section className="werkplaatsen">
                       <h2>Voeg nieuwe werkdag toe</h2>
                       <div className="work-places">
-                        <WorkPlaces store={store} />
+                        <ProtectedComponent
+                          protect={<WorkPlaces store={store} />}
+                          alternative={
+                            <p className="error-message">
+                              Je moet ingelogd zijn!
+                            </p>
+                          }
+                        />
                       </div>
                     </section>
                     <Query query={GET_ALL_WORKTOTALS}>
@@ -129,7 +138,6 @@ class App extends Component {
           />
           <Route component={NotFound} />
         </Switch>
-        <User />
       </div>
     );
   }
