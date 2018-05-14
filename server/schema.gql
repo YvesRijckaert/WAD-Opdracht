@@ -1,15 +1,18 @@
 module.exports = `
   type WorkTotal {
-    name: String
+    _id: String
+    totalDays: Float
+    totalSalary: Float
   }
 
   type Query {
     allWorkTotals: [WorkTotal]
+    workTotal(_id:String!):WorkTotal
   }
 
   type Mutation {
     addWorkTotals(
-      name:String!,
+      _id:String!,
     ):WorkTotal
   }
 `

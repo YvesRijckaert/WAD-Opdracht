@@ -1,9 +1,11 @@
 import gql from "graphql-tag";
 
-export default gql `
+export default gql`
   query getAllWorkTotals {
     allWorkTotals {
-      name
+      _id
+      totalDays
+      totalSalary
     }
   }
 `;

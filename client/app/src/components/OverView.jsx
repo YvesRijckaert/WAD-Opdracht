@@ -20,31 +20,31 @@ const OverView = ({ workTotals }) => {
           </p>
         </header>
         <div className="tbody">
-          {workTotals.map(({ work, totalDays, decrement, totalSalary }) => (
-            <p className="tr" key={work.id}>
+          {workTotals.map(({ workOption, totalDays, totalSalary }) => (
+            <p className="tr" key={workOption.id}>
               <span>
                 <span className="title">
                   Naam: <br className="no-style-break" />
                 </span>
-                {work.name}
+                {workOption.name}
               </span>
               <span>
                 <span className="title">
                   Loactie: <br className="no-style-break" />
                 </span>
-                {work.location}
+                {workOption.location}
               </span>
               <span>
                 <span className="title">
                   Startuur: <br className="no-style-break" />
                 </span>
-                {work.startHour}
+                {workOption.startHour}
               </span>
               <span>
                 <span className="title">
                   Stopuur: <br className="no-style-break" />
                 </span>
-                {work.endHour}
+                {workOption.endHour}
               </span>
               <span>
                 <span className="title">
@@ -57,9 +57,6 @@ const OverView = ({ workTotals }) => {
                   Totaal loon: <br className="no-style-break" />
                 </span>
                 {totalSalary}
-              </span>
-              <span className="title" onClick={decrement}>
-                X
               </span>
             </p>
           ))}
