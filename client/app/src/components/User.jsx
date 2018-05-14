@@ -9,12 +9,13 @@ class User extends Component {
   handleSignOut = client => {
     localStorage.removeItem(`jwt`);
     client.resetStore();
+    location.reload(); // eslint-disable-line
   };
 
   render() {
     return (
       <section className="user">
-        <h2>User</h2>
+        <h2>Welkom!</h2>
         <Query query={GET_CURRENT_USER}>
           {({ loading, error, data, client }) => {
             if (loading) return null;
@@ -27,7 +28,7 @@ class User extends Component {
                     Ingelogd als {data.currentUser.name}
                   </p>
                   <button onClick={() => this.handleSignOut(client)}>
-                    Sign out
+                    Log uit
                   </button>
                 </div>
               );

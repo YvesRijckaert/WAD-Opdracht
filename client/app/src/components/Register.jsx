@@ -33,7 +33,7 @@ class Register extends Component {
       <Mutation mutation={REGISTER}>
         {(register, { loading, error }) => (
           <article>
-            <h3>Register</h3>
+            <h3>Registreer</h3>
             {this.state.showRegister ? (
               <form
                 className="userform"
@@ -41,16 +41,16 @@ class Register extends Component {
                   this.handleSumbit(e, register);
                 }}
               >
-                <label htmlFor="reg-name">Name</label>
+                <label htmlFor="reg-name">Naam</label>
                 <input type="text" id="reg-name" name="name" required />
                 <label htmlFor="reg-email">E-mail</label>
                 <input type="email" id="reg-email" name="email" required />
-                <label htmlFor="reg-pwd">Password</label>
+                <label htmlFor="reg-pwd">Wachtwoord</label>
                 <input type="password" id="reg-pwd" name="password" required />
                 <input type="submit" value="Register" />
               </form>
             ) : (
-              <p>Registered, now log in!</p>
+              <p>Geregistreerd, log in aub!</p>
             )}
           </article>
         )}

@@ -27,7 +27,7 @@ class Login extends Component {
   render() {
     return (
       <article>
-        <h3>Sign in</h3>
+        <h3>Log in</h3>
         <Mutation mutation={LOGIN}>
           {login => (
             <form
@@ -36,9 +36,9 @@ class Login extends Component {
             >
               <label htmlFor="sig-email">E-mail</label>
               <input type="email" id="sig-email" name="email" required />
-              <label htmlFor="sig-pwd">Password</label>
+              <label htmlFor="sig-pwd">Wachtwoord</label>
               <input type="password" id="sig-pwd" name="password" required />
-              <input type="submit" value="Sign in" />
+              <input type="submit" value="Log in" />
               <p>{this.state.errorMessage}</p>
             </form>
           )}
