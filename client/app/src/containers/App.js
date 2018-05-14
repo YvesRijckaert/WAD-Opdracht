@@ -27,7 +27,7 @@ class App extends Component {
           <Route
             path="/"
             exact
-            render={() => (
+            component={() => (
               <Observer>
                 {() => (
                   <div>
@@ -84,7 +84,7 @@ class App extends Component {
           />
           <ProtectedRoute
             path="/edit"
-            render={() => (
+            component={() => (
               <Observer>
                 {() => (
                   <article>
@@ -122,7 +122,7 @@ class App extends Component {
           />
           <ProtectedRoute
             path="/add"
-            render={() => (
+            component={() => (
               <Observer>
                 {() => (
                   <article>
