@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { observer } from "mobx-react";
 import WorkPlaces from "../components/WorkPlaces";
 import OverView from "../components/OverView";
+import AdminWork from "../components/AdminWork";
 import EditWorkOption from "../components/EditWorkOption";
 import AddWorkOption from "../components/AddWorkOption";
 import NotFound from "../components/NotFound";
@@ -67,22 +68,21 @@ class App extends Component {
                     </Query>
                     <section className="beheer">
                       <h2>Beheer</h2>
-                      <div className="beheer-links">
-                        <Link className="link" to="/edit">
-                          Verander werkplaats
-                        </Link>
-                        <br />
-                        <Link className="link" to="/add">
-                          Voeg werkplaats toe
-                        </Link>
-                      </div>
+                      <ProtectedComponent
+                        protect={<AdminWork />}
+                        alternative={
+                          <p className="error-message">
+                            Je moet ingelogd zijn!
+                          </p>
+                        }
+                      />
                     </section>
                   </div>
                 )}
               </Observer>
             )}
           />
-          <Route
+          <ProtectedRoute
             path="/edit"
             render={() => (
               <Observer>
@@ -120,7 +120,7 @@ class App extends Component {
               </Observer>
             )}
           />
-          <Route
+          <ProtectedRoute
             path="/add"
             render={() => (
               <Observer>
