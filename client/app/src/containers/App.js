@@ -11,6 +11,9 @@ import { Observer } from "mobx-react";
 import { Query } from "react-apollo";
 import GET_ALL_WORKTOTALS from "../graphql/getAllWorkTotals";
 import GET_ALL_WORKOPTIONS from "../graphql/getAllWorkOptions";
+import User from "../components/User";
+import ProtectedComponent from "../components/ProtectedComponent";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 class App extends Component {
   render() {
@@ -126,6 +129,7 @@ class App extends Component {
           />
           <Route component={NotFound} />
         </Switch>
+        <User />
       </div>
     );
   }
