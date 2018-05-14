@@ -1,11 +1,22 @@
-// // laad de database config in en laad mongoose in (DAO-achtig => om met objecten te werken)
 const dbConfig = require("./config/database.js");
 const mongoose = require("mongoose");
+const express = require("express");
+const bodyParser = require("body-parser");
 
-//Promises gaan fixen (config setting)
+//graphql
+const { graphqlExpress, graphiqlExpress } = require("apollo-server-express");
+const { makeExecutableSchema } = require("graphql-tools");
+const cors = require("cors");
+
+//login
+const { User } = require("./connectors");
+const jwt = require("express-jwt");
+const { jwtsecret } = require("./config/");
+
+const app = express();
+
 mongoose.Promise = global.Promise;
 
-//connecteer met de database
 mongoose
   .connect(dbConfig.url)
   .then(() => {
@@ -16,33 +27,6 @@ mongoose
     process.exit();
   });
 
-// //configureer bodyParser
-// app.use(bodyParser.urlencoded({
-//   extended: true
-// }));
-// app.use(bodyParser.json());
-
-// app.use(function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-//   next();
-// });
-
-//
-
-const express = require("express");
-const bodyParser = require("body-parser");
-
-const { graphqlExpress, graphiqlExpress } = require("apollo-server-express");
-const { makeExecutableSchema } = require("graphql-tools");
-const cors = require("cors");
-
-const app = express();
-
 const PORT = 4000;
 
 const typeDefs = require("./schema.gql");
@@ -52,8 +36,33 @@ const schema = makeExecutableSchema({
   resolvers
 });
 
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+);
+app.use(bodyParser.json());
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+  next();
+});
 app.use(cors());
-app.use("/graphql", bodyParser.json(), graphqlExpress({ schema }));
+app.use(
+  "/graphql",
+  bodyParser.json(),
+  jwt({ secret: jwtsecret, credentialsRequired: false }),
+  graphqlExpress(req => ({
+    schema,
+    context: {
+      user: req.user ? User.findById(req.user.id) : Promise.resolve(null)
+    }
+  }))
+);
 app.use("/graphiql", graphiqlExpress({ endpointURL: "/graphql" }));
 
 app.get("/", (req, res) => {

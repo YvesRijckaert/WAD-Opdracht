@@ -14,16 +14,33 @@ module.exports = `
     salaryPerHour: Float
   }
 
+  type User {
+    _id: String
+    name: String
+    email: String!
+    jwt: String
+  }
+
   type Query {
     allWorkTotals: [WorkTotal]
     workTotal(_id:String!):WorkTotal
     allWorkOptions: [WorkOption]
     workOption(_id:String!):WorkOption
+    allUsers: [User]
   }
 
   type Mutation {
     addWorkTotals(
       _id:String!,
     ):WorkTotal
+    register(
+      name: String!
+      email: String!
+      password: String!
+    ):User
+    login(
+      email: String!
+      password: String!
+    ):User
   }
 `
